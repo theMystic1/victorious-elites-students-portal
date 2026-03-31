@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Victorious Elites Landing — BSS tokens */
+@theme {
+    --font-sans: var(--font-nunito-sans);
+    --font-mono: var(--font-nunito);
+    --font-display: var(--font-nunito), Cinzel, ui-serif, Georgia, serif;
+
+    /* Brand */
+    --c-navy: #0b1b3a;
+    --c-blue: #2563eb; /* primary accent */
+    --c-emerald: #10b981; /* secondary accent */
+    --c-amber: #f59e0b; /* tertiary accent */
+
+    /* Neutrals */
+    --c-bg: #f6f8fc;
+    --c-surface: #ffffff;
+    --c-border: #e5e7eb;
+
+    --c-ink: #0f172a;
+    --c-muted: #475569;
+    --c-soft: #64748b;
+
+    /* Tints */
+    --c-blue-soft: #eff6ff;
+    --c-emerald-soft: #ecfdf5;
+    --c-amber-soft: #fff7ed;
+    --c-navy-soft: #eef2ff;
+
+    /* Radius + shadow */
+    --r-xl: 18px;
+    --r-2xl: 24px;
+    --sh-card:
+        0 1px 2px rgba(15, 23, 42, 0.06), 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Optional: consistent selection */
+::selection {
+    background: var(--c-blue);
+    color: white;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-nunito), Arial, Helvetica, sans-serif;
+}
+
+@media print {
+    /* hide everything by default */
+    body * {
+        visibility: hidden;
+    }
+
+    /* show only the result sheet */
+    #result-sheet,
+    #result-sheet * {
+        visibility: visible;
+    }
+
+    /* place it at the top-left for clean printing */
+    #result-sheet {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    /* optional: remove backgrounds/shadows if any */
+    .no-print-shadow {
+        box-shadow: none !important;
+    }
+}
+
+/* --- Print helpers --- */
+@media print {
+    /* print only the report area */
+    body * {
+        visibility: hidden;
+    }
+
+    .print-area,
+    .print-area * {
+        visibility: visible;
+    }
+
+    .print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+    }
+
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
+    /* avoid ugly table splits */
+    table {
+        page-break-inside: avoid;
+    }
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+}
+
+/* --- Report sheet helpers --- */
+@media print {
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
+    /* prevent weird scaling differences */
+    html,
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* hide anything you don't want printed */
+    .no-print {
+        display: none !important;
+    }
+
+    /* keep the sheet intact on one page if possible */
+    .avoid-break {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* Vertical header text like the paper */
+.vtext {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+}
+
+/* Thin grid lines like a report sheet */
+.sheet-grid td,
+.sheet-grid th {
+    border: 1px solid #111;
+}
+
+/* Small, tight table typography */
+.sheet-small {
+    font-size: 11px;
+    line-height: 1.1;
 }
