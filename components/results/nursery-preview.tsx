@@ -114,6 +114,10 @@ export default function NurseryReportSheet({
     term,
     totalStudents,
     subjectsCount,
+    formTeachersRemark,
+    principalsRemark,
+    signedBy,
+    signedDate,
   } = results;
 
   // console.log(results);
@@ -381,14 +385,18 @@ export default function NurseryReportSheet({
             </div>
             <div className="flex-1">
               Headmaster&apos;s Comments{" "}
-              <span className="inline-block border-b border-black w-56" />
+              <span className="inline-block border-b border-black w-56 font-bold ml-2">
+                {principalsRemark}
+              </span>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
             <div className="flex-1">
               Class Teacher&apos;s Comments{" "}
-              <span className="inline-block border-b border-black w-[420px]" />
+              <span className="inline-block border-b border-black min-w-105 font-bold ml-2">
+                {formTeachersRemark}
+              </span>
             </div>
           </div>
 
@@ -401,7 +409,9 @@ export default function NurseryReportSheet({
             </div>
 
             <div className="w-64">
-              <div className="border-b border-black h-6" />
+              <div className="border-b border-black h-6 font-bold italic">
+                {signedBy?.firstName} {signedBy?.lastName}
+              </div>
               <div className="text-center font-semibold mt-1">
                 Signature of Head Teacher
               </div>

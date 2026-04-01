@@ -1,6 +1,10 @@
 "use client";
 
-import { constructClassName, toOrdinal } from "@/lib/helpers/helper";
+import {
+  constructClassName,
+  formatDate,
+  toOrdinal,
+} from "@/lib/helpers/helper";
 import { ClassType, LevelType, StudentType, StydebtsResult } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
@@ -210,6 +214,10 @@ export default function ReportSheet({
     overallPosition,
     overallTotal,
     personalAverage,
+    formTeachersRemark,
+    principalsRemark,
+    signedBy,
+    signedDate,
   } = results;
   // console.log(results);
 
@@ -464,26 +472,27 @@ export default function ReportSheet({
 
             {/* Remarks lines */}
             <div className="mt-7 space-y-5">
-              <LineField
+              {/*<LineField
                 label="FORM TEACHER:"
                 value={data.remarks.formTeacher}
-              />
+              />*/}
               <LineField
                 label="FORM TEACHER'S REMARK:"
-                value={data.remarks.formTeacherRemark}
+                value={formTeachersRemark}
               />
-              <LineField
-                label="PRINCIPAL'S REMARK:"
-                value={data.remarks.principalRemark}
-              />
+              <LineField label="PRINCIPAL'S REMARK:" value={principalsRemark} />
               <LineField
                 label="NEXT TERM BEGINS:"
                 value={data.remarks.nextTermBegins}
               />
 
               <div className="mt-10 grid grid-cols-2 gap-12">
-                <LineField label="DATE:" value={data.remarks.date} />
-                <LineField label="SIGNATURE:" value={data.remarks.signature} />
+                <LineField label="DATE:" value={formatDate(signedDate)} />
+                <LineField
+                  label="SIGNED BY:"
+                  value={`${signedBy?.firstName} ${signedBy?.lastName}`}
+                  italics
+                />
               </div>
             </div>
           </div>
@@ -514,11 +523,23 @@ function RowLine({ label, value }: { label: string; value?: string }) {
   );
 }
 
-function LineField({ label, value }: { label: string; value?: string }) {
+function LineField({
+  label,
+  value,
+  italics,
+}: {
+  label: string;
+  value?: string;
+  italics?: boolean;
+}) {
   return (
     <div className="flex items-end gap-2">
       <div className="min-w-[170px] font-bold">{label}</div>
-      <div className="flex-1 border-b border-black pb-1">{value || ""}</div>
+      <div
+        className={`flex-1 border-b border-black pb-1 ${italics ? "italic" : ""}  `}
+      >
+        {value || ""}
+      </div>
     </div>
   );
 }

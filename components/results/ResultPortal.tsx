@@ -193,6 +193,10 @@ export default function ResultPortal() {
     term: null,
     subjectsCount: 0,
     totalStudents: 0,
+    formTeachersRemark: "",
+    principalsRemark: "",
+    signedBy: null,
+    signedDate: "",
   });
   const ref = React.useRef<HTMLDivElement | null>(null);
 
@@ -249,6 +253,10 @@ export default function ResultPortal() {
         term: result?.term,
         subjectsCount: result?.subjectsCount,
         totalStudents: result?.totalStudents,
+        formTeachersRemark: result?.formTeachersRemark,
+        principalsRemark: result?.principalsRemark,
+        signedBy: result?.signedBy,
+        signedDate: result?.signedDate,
       });
 
       setIsEmpty(result?.results?.length > 0 ? false : true);

@@ -151,4 +151,8 @@ export type StydebtsResult = {
   term: TermType | null;
   subjectsCount: number;
   totalStudents: number;
+  formTeachersRemark: string;
+  principalsRemark: string;
+  signedBy: any;
+  signedDate: string;
 };
