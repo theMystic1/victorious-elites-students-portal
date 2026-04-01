@@ -157,14 +157,22 @@ export default function NurseryReportSheet({
 
         {/* Termly report line */}
         <div className="mt-3 flex items-center gap-3 text-[12px] mb-4">
-          <div className="flex-1">
-            Termly Report Class{" "}
-            <span className="inline-block border-b border-black w-40 align-middle font-bold ml-3">
-              {constructClassName(
-                (student?.classId as ClassType)?.name,
-                (student?.classId as ClassType)?.level,
-              )}
-            </span>
+          <div className="flex flex-col gap-2">
+            <div className="flex-1">
+              Termly Report Class{" "}
+              <span className="inline-block border-b border-black w-40 align-middle font-bold ml-2">
+                {constructClassName(
+                  (student?.classId as ClassType)?.name,
+                  (student?.classId as ClassType)?.level,
+                )}
+              </span>
+            </div>
+            <div className="flex-1">
+              Students Name:{" "}
+              <span className="inline-block border-b border-black w-40 align-middle font-bold ml-2">
+                {student?.fullName}
+              </span>
+            </div>
           </div>
 
           <div className="">
