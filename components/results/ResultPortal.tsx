@@ -253,13 +253,6 @@ export default function ResultPortal() {
 
       setIsEmpty(result?.results?.length > 0 ? false : true);
 
-      console.log(result);
-
-      // console.log({
-      //   ratings: result?.ratings,
-      //   results: result?.results,
-      //   student: result?.student,
-      // });
       scrollToResults();
     } catch (error: unknown) {
       const { message } = toApiError(error);
