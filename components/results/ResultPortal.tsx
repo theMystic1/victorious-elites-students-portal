@@ -389,12 +389,15 @@ export default function ResultPortal() {
               title="Result Sheet"
               subtitle="Result content will appear here after lookup."
               right={
-                <button
-                  className="px-4 py-2 rounded-lg bg-black text-white"
-                  onClick={() => window.print()}
-                >
-                  Print / Save PDF
-                </button>
+                (results?.student?.classId as ClassType)?.level === "PRIMARY" ||
+                (results?.student?.classId as ClassType)?.level === "KG" ? (
+                  <button
+                    className="px-4 py-2 rounded-lg bg-black text-white"
+                    onClick={() => window.print()}
+                  >
+                    Print / Save PDF
+                  </button>
+                ) : null
               }
             />
 
