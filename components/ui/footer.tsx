@@ -27,17 +27,14 @@ const Footer = () => {
                 Contact
               </span>
             </div>
-            <div className="mt-6 text-xs text-white/60">
-              © {new Date().getFullYear()} Victorious Elites Academy
-            </div>
           </div>
 
           <div>
             <div className="text-sm font-extrabold">Contact</div>
             <div className="mt-3 grid gap-2 text-sm text-white/75">
               <div>
-                <span className="font-semibold text-white">Phone:</span> +234
-                XXX XXX XXXX
+                <span className="font-semibold text-white">Phone:</span>{" "}
+                08068633766, 08116154225
               </div>
               <div>
                 <span className="font-semibold text-white">Email:</span>{" "}
@@ -45,11 +42,10 @@ const Footer = () => {
               </div>
               <div>
                 <span className="font-semibold text-white">Address:</span>{" "}
-                Onitsha, Nigeria
+                Amaeze Village Mgbakwu Awka North L.G.A Anambra State
               </div>
             </div>
           </div>
-
           <div>
             <div className="text-sm font-extrabold">Quick Links</div>
             <div className="mt-3 grid gap-2 text-sm">
@@ -72,10 +68,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 rounded-[var(--r-2xl)] border border-white/10 bg-white/5 p-5 text-sm text-white/75">
+        {/*<div className="mt-10 rounded-[var(--r-2xl)] border border-white/10 bg-white/5 p-5 text-sm text-white/75">
           <span className="font-semibold text-white">Note:</span> This is the
           public website. Staff/admin access is provided through the secured
           internal portal.
+        </div>*/}
+
+        <div className="mt-6 text-xs text-white/60">
+          © {new Date().getFullYear()} Victorious Elites Academy
         </div>
       </div>
     </footer>

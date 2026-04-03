@@ -134,7 +134,7 @@ export default function NurseryReportSheet({
               src={logoImg}
               alt="School Logo "
               fill
-              className="object-fill"
+              className="object-contain"
             />
           </div>
 
@@ -195,7 +195,16 @@ export default function NurseryReportSheet({
         </div>
 
         {/* Main table */}
-        <div className="mb-5">
+        <div className="mb-5 relative">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Image
+              src="/images/logo.png"
+              alt="Logo image"
+              height={200}
+              width={200}
+              className="object-contain  opacity-10"
+            />
+          </div>
           <table className="w-full border-collapse sheet-grid">
             <colgroup>
               {/* SUBJECTS */}

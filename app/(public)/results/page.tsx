@@ -1,6 +1,7 @@
 import ResultPortal from "@/components/results/ResultPortal";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Result Checker",
   description: "Check and download student results",
 };

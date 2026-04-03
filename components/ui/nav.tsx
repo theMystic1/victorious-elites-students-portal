@@ -26,7 +26,7 @@ const Nav = () => {
         </div>
         {pathname.includes("result") ? null : (
           <>
-            <nav className="hidden items-center gap-6 text-sm font-semibold text-(--c-muted) md:flex">
+            <nav className="hidden items-center gap-6 text-sm font-semibold text-(--c-muted) lg:flex">
               <Link className="hover:text-(--c-ink)" href="#programs">
                 Programs
               </Link>
@@ -44,7 +44,7 @@ const Nav = () => {
               </Link>
             </nav>
 
-            <div className="flex items-center gap-2">
+            <div className=" hidden lg:flex items-center gap-2">
               <Button href="/results" variant="ghost">
                 Check Result
               </Button>

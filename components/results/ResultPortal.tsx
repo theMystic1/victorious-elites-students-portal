@@ -286,8 +286,8 @@ export default function ResultPortal() {
 
   // console.log(sessionData, termsData);
   return (
-    <main className="min-h-full bg-[var(--c-bg)]">
-      <div className="mx-auto max-w-6xl px-4 py-8">
+    <main className="min-h-full bg-(--c-bg)">
+      <div className="mx-auto max-w-6xl px-3 lg:px-4 py-8">
         {/* Page heading */}
         <div className="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
@@ -362,7 +362,7 @@ export default function ResultPortal() {
                   </div>
                 </div>
 
-                <div className="mt-2 flex items-center justify-between gap-3">
+                <div className="mt-2 flex lg:flex-row flex-col lg:items-center gap-2 justify-between gap-3">
                   <Button onClick={onCheck} disabled={!canCheck || isChecking}>
                     {isChecking ? "Loading results data..." : " Check Result"}
                   </Button>
@@ -401,7 +401,7 @@ export default function ResultPortal() {
               }
             />
 
-            <div className="p-6" ref={ref}>
+            <div className="lg:p-6 p-3" ref={ref}>
               {/*<EmptyState
                 title="No result loaded yet"
                 description="Enter your Student ID and select Session + Term to view your result."

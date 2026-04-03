@@ -222,7 +222,7 @@ export default function ReportSheet({
   // console.log(results);
 
   return (
-    <div className="bg-neutral-100 py-6">
+    <div className="bg-neutral-100 py-6 ">
       {/* Toolbar (not printed) */}
       <div className="mx-auto mb-4 w-198.5 print:hidden">
         <div className="flex items-center justify-between rounded-xl border border-neutral-200 bg-white px-4 py-3">
@@ -241,7 +241,7 @@ export default function ReportSheet({
         </div>
       </div>
       ){/* PAGE 1 */}
-      <div id="result-sheet">
+      <div id="result-sheet" className="relative">
         <section className="mx-auto w-198.5 bg-white px-5 py-8 shadow-sm ring-1 ring-black/5 print:shadow-none print:ring-0">
           {/* Header */}
           <div className="text-center">
@@ -328,8 +328,17 @@ export default function ReportSheet({
           </div>
 
           {/* Results table */}
-          <div className="mt-4">
-            <table className="w-full border-collapse font-serif text-[11px]">
+          <div className="mt-4 relative z-50">
+            <div className="absolute inset-0 flex items-center justify-center -z-1">
+              <Image
+                src="/images/logo.png"
+                alt="Logo image"
+                height={200}
+                width={200}
+                className="object-contain -z-2 opacity-10"
+              />
+            </div>
+            <table className="w-full border-collapse font-serif text-[11px] z-50">
               <thead>
                 <tr>
                   <Th rowSpan={2} className="w-[38%]">
@@ -403,7 +412,7 @@ export default function ReportSheet({
         {/* PAGE 2 */}
         <section className="mx-auto mt-6 w-[794px] bg-white px-5 py-8 shadow-sm ring-1 ring-black/5 print:mt-0 print:break-before-page print:shadow-none print:ring-0">
           {/* Ratings table */}
-          <div className="font-serif text-[11px]">
+          <div className="font-serif text-[11px] relative">
             <table className="w-full border-collapse">
               <thead>
                 <tr>
@@ -573,7 +582,7 @@ function Td({
 }) {
   return (
     <td
-      className={`border border-black px-2 py-1 align-middle font-bold ${className}`}
+      className={`border border-black px-2 py-1 align-middle font-bold ${className} z-50`}
     >
       {children}
     </td>

@@ -7,15 +7,18 @@ const Button = ({
   href,
   onClick,
   disabled,
+  className,
 }: {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "ghost";
   href?: string;
   onClick?: () => void;
   disabled?: boolean;
+  className?: string;
 }) => {
-  const base =
-    "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition active:scale-[0.99]";
+  const base = `inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition active:scale-[0.99] ${
+    className
+  }`;
   const styles =
     variant === "primary"
       ? "bg-[var(--c-blue)] text-white hover:opacity-95 shadow-sm"

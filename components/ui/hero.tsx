@@ -38,16 +38,16 @@ const HeroSection = () => {
             environment where students thrive.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button href="#admissions" variant="primary">
+          <div className="mt-6  gap-3 w-full">
+            {/*<Button href="#admissions" variant="primary">
               Start Admission
-            </Button>
-            <Button href="/results" variant="ghost">
+            </Button>*/}
+            <Button href="/results" variant="primary" className="w-full!">
               Result Portal
             </Button>
-            <Button href="#programs" variant="secondary">
+            {/*<Button href="#programs" variant="secondary">
               Explore Programs
-            </Button>
+            </Button>*/}
           </div>
 
           <div className="mt-8 grid gap-3 md:grid-cols-3">
@@ -59,7 +59,7 @@ const HeroSection = () => {
 
         {/* Hero side: distinct panel with accent gradient */}
 
-        <div className="rounded-[var(--r-2xl)] border border-[var(--c-border)] bg-(--c-blue) p-6 shadow-[var(--sh-card)] relative h-full w-full ">
+        <div className="hidden lg:flex  rounded-(--r-2xl) border border-(--c-border) bg-(--c-blue) p-6 shadow-(--sh-card) relative h-full w-full ">
           <Image
             src={studentsImg}
             alt="Students image"
