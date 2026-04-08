@@ -240,7 +240,7 @@ export default function ReportSheet({
           </button>
         </div>
       </div>
-      ){/* PAGE 1 */}
+      {/* PAGE 1 */}
       <div id="result-sheet" className="relative">
         <section className="mx-auto w-198.5 bg-white px-5 py-8 shadow-sm ring-1 ring-black/5 print:shadow-none print:ring-0">
           {/* Header */}

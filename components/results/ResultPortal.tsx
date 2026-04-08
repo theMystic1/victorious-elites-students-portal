@@ -402,15 +402,6 @@ export default function ResultPortal() {
             />
 
             <div className="lg:p-6 p-3" ref={ref}>
-              {/*<EmptyState
-                title="No result loaded yet"
-                description="Enter your Student ID and select Session + Term to view your result."
-                steps={[
-                  "Type your Student ID (e.g. VE00023).",
-                  "Choose the correct Session and Term.",
-                  "Click “Check Result”.",
-                ]}
-              />*/}
               {isChecking ? (
                 <ResultsRightPaneSkeleton />
               ) : results?.results?.length > 0 ? (
